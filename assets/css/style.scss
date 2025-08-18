@@ -1,0 +1,125 @@
+@use 'fonts';
+@use 'variables';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//header
+header{
+    background-color: variables.$green;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-between;
+    align-items: center;
+
+    .homeButton{
+        width: 60px;
+        img{
+            width: 100%;
+        }
+    }
+
+    .emailAdd{
+        display: block;
+        font-family: 'Bitcount Prop Double';
+        font-style: normal;
+        font-size: 24px;
+        text-decoration: underline;
+        text-shadow: variables.$textBorder;
+        color: black;
+        transition: all 0.5s;
+
+        &:hover{
+            transform: scale(1.05);
+            text-shadow: variables.$textHover;
+        }
+    }
+
+    .menu{
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 504px;
+        li{
+            font-size: 28px;
+            font-family: 'Roboto';
+            font-weight: bold;
+            a{
+                display: block;
+                text-decoration: none;
+                color: black;
+                transition: all 0.5s;
+                &:hover{
+                    transform: scale(1.15);
+    
+                }
+            }
+            .contactButton{
+                cursor: pointer;
+                color: variables.$green;
+                background-color: black;
+                padding: 10px 10px;
+                border-radius: 10px;
+                transition: all 0.5s;
+                &:hover{
+                    transform: scale(1.15);
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@keyframes moveRight {
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(20px, 0);
+    }
+}
+
+#contact{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: variables.$bg;
+    font-family: 'Bitcount Prop Double';
+    font-style: normal;
+    font-size: 20px;
+    color: variables.$green;
+    height: 80vh;
+    width: 40%;
+    z-index: 101;
+    border-left: dashed 3px variables.$green;
+    border-bottom: dashed 3px variables.$green;
+    transition: all ease-out 0.8s;
+    .arrow{
+        cursor: pointer;
+        width: 30px;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        &:hover{
+            animation-name: moveRight;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+        }
+    }
+    form{
+        .form-group, .sub{
+            margin: 15px;
+        }
+    }
+}

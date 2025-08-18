@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="build/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+        include('partials/header.php')
+    ?>
+    <div id="contact">
+        <img class="arrow" src="images/pix_arrow.png" alt="flèche pixelisée">
+        <form action="traitement.php" method="POST">
+            <?php
+                if(isset($_GET['error'])){
+                    echo "<div class='alert'>Une erreur est survenue (code erreur: ".$_GET['error'].")</div>";
+                };
+
+                if(isset($_GET['sent'])){
+                    if($_GET['sent']=="success"){
+                        echo "<div class='success'>Votre message a bien été envoyé</div>";
+                    }
+                }
+            ?>
+            <div class="form-group">
+                <label for="nom">Nom: </label>
+                <input type="text" name="nom" id="nom" placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <label for="prenom">Prénom: </label>
+                <input type="text" name="prenom" id="prenom" placeholder="Votre prénom">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" placeholder="votre adresse e-mail">
+            </div>
+            <div class="form-group">
+                <label for="message">Message: </label>
+                <input type="textarea" name="message" id="message" placeholder="votre message">
+            </div>
+            <div class="sub">
+                <input type="submit" value="Envoyer">
+            </div>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
