@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,7 +26,10 @@
                         echo "<div class='success'>Votre message a bien été envoyé</div>";
                     }
                 }
+
+                $_SESSION['token'] = bin2hex(random_bytes(32));
             ?>
+            <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
             <div class="form-group">
                 <label for="nom">Nom: </label>
                 <input type="text" name="nom" id="nom" placeholder="Votre nom">
