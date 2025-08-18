@@ -1,11 +1,7 @@
 @use 'fonts';
 @use 'variables';
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 //header
 header{
@@ -121,5 +117,28 @@ header{
         .form-group, .sub{
             margin: 15px;
         }
+    }
+}
+
+#home{
+    background-color: variables.$bg;
+    overflow: hidden;
+    .nom{
+        font-family: 'Share Tech Mono';
+        color: variables.$green;
+        margin: 160px auto 0;
+        width: fit-content;
+        font-size: 72px;
+    }
+    .fonc{
+        font-family: 'Bitcount Prop Double';
+        color: variables.$green;
+        font-size: 96px;
+        height: 144px;
+        width: 784px;
+        border-radius: 30px;
+        @extend %flex-dcenter;
+        margin: 210px auto 0;
+        background-color: rgba(255, 255, 255, 0.2);
     }
 }

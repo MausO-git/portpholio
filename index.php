@@ -15,7 +15,7 @@
     ?>
     <div id="contact">
         <img class="arrow" src="images/pix_arrow.png" alt="flèche pixelisée">
-        <form action="traitement.php" method="POST">
+        <form action="sentmail.php" method="POST">
             <?php
                 if(isset($_GET['error'])){
                     echo "<div class='alert'>Une erreur est survenue (code erreur: ".$_GET['error'].")</div>";
@@ -50,6 +50,10 @@
                 <input type="submit" value="Envoyer">
             </div>
         </form>
+    </div>
+    <div id="home" class="slide">
+        <div class="nom">Oscar Maus</div>
+        <div class="fonc">Web Developer</div>
     </div>
     <script src="js/script.js"></script>
 </body>

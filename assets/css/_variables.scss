@@ -3,3 +3,21 @@ $green: #00DF5D;
 $textBorder: #5356FF 0 0 5px;
 $textHover: #3538fe 0 0 15px;
 $bg: #151717;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slide{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+%flex-dcenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
