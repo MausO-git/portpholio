@@ -10,8 +10,9 @@ if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
     header("Location: index.php?error=csrf");
     exit;
 }
-unset($_SESSION['token']); // invalider le token après usage
+unset($_SESSION['token']);// invalider le token après usage
 
+$_SESSION['mailtoken'] = "viewContact";
 
 // Récupération et sécurisation des champs
 $nom     = htmlspecialchars(trim($_POST['nom']));
@@ -21,13 +22,13 @@ $message = htmlspecialchars(trim($_POST['message']));
 
 // Vérification des champs obligatoires
 if (empty($nom) || empty($prenom) || empty($email) || empty($message)) {
-    header("Location: index.php?error=1"); // erreur si un champ est vide
+    header("Location: index.php?senterror=1"); // erreur si un champ est vide
     exit;
 }
 
 // Vérification adresse mail valide
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header("Location: index.php?error=2"); // erreur email invalide
+    header("Location: index.php?senterror=2"); // erreur email invalide
     exit;
 }
 
@@ -53,6 +54,6 @@ if (mail($to, $subject, $body, $headers)) {
     header("Location: index.php?sent=success");
     exit;
 } else {
-    header("Location: index.php?error=3"); // erreur d'envoi
+    header("Location: index.php?senterror=3"); // erreur d'envoi
     exit;
 }

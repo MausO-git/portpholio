@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(isset($_SESSION['mailtoken'])){
+        $mailToken = $_SESSION['mailtoken'];
+        unset($_SESSION['mailtoken']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,12 +17,18 @@
     <?php
         include('partials/header.php')
     ?>
-    <div id="contact">
+    <div id="contact" 
+        <?php 
+            if(isset($mailToken)){
+                echo "data-token=".$mailToken;
+            };
+        ?>
+    >
         <img class="arrow" src="images/pix_arrow.png" alt="flèche pixelisée">
         <form action="sentmail.php" method="POST">
             <?php
-                if(isset($_GET['error'])){
-                    echo "<div class='alert'>Une erreur est survenue (code erreur: ".$_GET['error'].")</div>";
+                if(isset($_GET['senterror'])){
+                    echo "<div class='alert'>Une erreur est survenue (code erreur: ".$_GET['senterror'].")</div>";
                 };
 
                 if(isset($_GET['sent'])){

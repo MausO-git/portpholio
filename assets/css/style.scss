@@ -93,11 +93,11 @@ header{
     font-style: normal;
     font-size: 20px;
     color: variables.$green;
-    height: 80vh;
+    height: 100vh;
     width: 40%;
     z-index: 101;
-    border-left: dashed 3px variables.$green;
-    border-bottom: dashed 3px variables.$green;
+    border-left: solid 4px transparent;  
+    border-image: url(../../images/test-border.png) 10 round; 
     transition: all ease-out 0.8s;
     .arrow{
         cursor: pointer;
@@ -120,6 +120,10 @@ header{
     }
 }
 
+#contact[data-token="viewContact"]{
+    right: 0;
+}
+
 #home{
     background-color: variables.$bg;
     overflow: hidden;
@@ -140,5 +144,7 @@ header{
         @extend %flex-dcenter;
         margin: 210px auto 0;
         background-color: rgba(255, 255, 255, 0.2);
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        will-change: transform;
     }
 }
