@@ -148,3 +148,76 @@ header{
         will-change: transform;
     }
 }
+
+#archive{
+    @extend %flex-dcenter;
+    .content{
+        width: 90%;
+        height: 80vh;
+        background-color: rgb(255, 255, 255, 0.7);
+        border-radius: 30px;
+        transform: translate(0, 50px);
+        @extend %flex-dcenter;
+        .card-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 58px;
+            justify-content: center;
+            align-items: center;
+            .card{
+                width: 350px;
+                height: 500px;
+                border-radius: 30px;
+                background-color: variables.$bg;
+                color: variables.$green;
+                font-family: 'Bitcount Prop Double';
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                img{
+                    width: 100%;
+                }
+                .info{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    h2{
+                        font-size: 40px;
+                        font-weight: 400;
+                        text-shadow: variables.$textBorderbis;
+                    }
+                    p{
+                        font-size: 20px;
+                    }
+                }
+                .blocLien{
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    border-top: solid 1px variables.$green;
+                    a{
+                        width: 100%;
+                        height: 50%;
+                        @extend %flex-dcenter;
+                        text-decoration: none;
+                        color: variables.$green;
+                        font-size: 32px;
+                        transition: all 0.5s;
+                    }
+                    a:hover{
+                        font-size: 36px;
+                        text-shadow: variables.$textBorder;
+                    }
+                    a.bb{
+                        border-bottom: solid 1px variables.$green;
+                    }
+                }
+            }
+        }
+    }
+}

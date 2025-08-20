@@ -65,6 +65,33 @@
         <div class="nom">Oscar Maus</div>
         <div class="fonc">Web Developer</div>
     </div>
+    <div id="archive" class="slide">
+         <div class="content">
+            <div class="card-container">
+                <?php
+                    require "connexion.php";
+
+                    $req = $bdd->query("SELECT images, nom, DATE_FORMAT(date, '%d/%m/%Y') AS euDate, link, github FROM work ORDER BY date DESC LIMIT 0,3") ;
+
+                    while($don = $req->fetch(PDO::FETCH_ASSOC)){
+                        echo "
+                            <div class='card'>
+                                <img src='images/site/".$don['images']."' alt='image représentant le site ".$don['nom']."'>
+                                <div class='info'>
+                                    <h2>".$don['nom']."</h2>
+                                    <p>".$don['euDate']."</p>
+                                </div>
+                                <div class='blocLien'>
+                                    <a class='bb' href=".$don['link'].">Voir site</a>
+                                    <a href=".$don['github'].">Github</a>
+                                </div>
+                            </div>
+                            ";
+                    }
+                ?>
+            </div>
+         </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>

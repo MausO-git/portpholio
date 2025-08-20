@@ -1,10 +1,10 @@
 <header>
-    <a class="homeButton" href="#">
+    <a class="homeButton" href="index.php#home">
         <img src="images/logo_mid.png" alt="logo du site">
     </a>
     <a class="emailAdd" href="mailto:contact@mausosc.com" target="_blank" rel="norefferer">contact@mausosc.com</a>
     <ul class="menu">
-        <li><a href="#">Archive</a></li>
+        <li><a href="index.php#archive">Archive</a></li>
         <li><a href="#">Compétences</a></li>
         <li>
             <div>

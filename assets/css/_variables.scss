@@ -1,6 +1,7 @@
 //variables et extensions
 $green: #00DF5D;
 $textBorder: #5356FF 0 0 5px;
+$textBorderbis: rgba(83, 86, 255, 0.6) 0 0 5px;
 $textHover: #3538fe 0 0 15px;
 $bg: #151717;
 
@@ -12,8 +13,9 @@ $bg: #151717;
 
 .slide{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
+    background-color: $bg;
 }
 
 %flex-dcenter{
