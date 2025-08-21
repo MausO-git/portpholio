@@ -11,6 +11,10 @@ $bg: #151717;
     box-sizing: border-box;
 }
 
+body, html{
+    scroll-behavior: smooth;
+}
+
 .slide{
     width: 100%;
     min-height: 100vh;
@@ -23,3 +27,10 @@ $bg: #151717;
     justify-content: center;
     align-items: center;
 }
+
+%bitcount{
+    font-family: 'Bitcount Prop Double';
+    font-weight: 400;
+}
+
+

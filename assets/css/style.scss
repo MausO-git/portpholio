@@ -157,7 +157,15 @@ header{
         background-color: rgb(255, 255, 255, 0.7);
         border-radius: 30px;
         transform: translate(0, 50px);
+        position: relative;
         @extend %flex-dcenter;
+        .title{
+            @extend %bitcount;
+            position: absolute;
+            font-size: 48px;
+            top: 30px;
+            left: 30px;
+        }
         .card-container{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -180,8 +188,10 @@ header{
                     width: 100%;
                 }
                 .info{
+                    padding: 5px;
                     display: flex;
                     flex-direction: column;
+                    justify-content: space-between;
                     align-items: center;
                     h2{
                         font-size: 40px;
@@ -190,6 +200,15 @@ header{
                     }
                     p{
                         font-size: 20px;
+                    }
+                    .tec{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 80px;
+                        img{
+                            width: 40px;
+                        }
                     }
                 }
                 .blocLien{
@@ -204,19 +223,47 @@ header{
                         width: 100%;
                         height: 50%;
                         @extend %flex-dcenter;
+                        gap: 10px;
                         text-decoration: none;
                         color: variables.$green;
                         font-size: 32px;
                         transition: all 0.5s;
+                        svg{
+                            width: 32px;
+                            transition: all 0.5s;
+                        }
                     }
                     a:hover{
                         font-size: 36px;
                         text-shadow: variables.$textBorder;
+                        svg{
+                            width: 36px;
+                            filter: drop-shadow(rgba(83, 86, 255, 0.6) 0 0 5px);
+                        }
                     }
                     a.bb{
                         border-bottom: solid 1px variables.$green;
                     }
                 }
+            }
+        }
+        .more{
+            width: 100%;
+            @extend %flex-dcenter;
+            position: absolute;
+            bottom: 30px;
+            a{
+                @extend %bitcount;
+                font-size: 28px;
+                text-decoration: none;
+                color: variables.$green;
+                background-color: variables.$bg;
+                padding: 10px 15px;
+                border-radius: 20px;
+                transition: all 0.3s ease-out;
+            }
+            a:hover{
+                transform: scale(1.05);
             }
         }
     }
