@@ -5,7 +5,7 @@
     <a class="emailAdd" href="mailto:contact@mausosc.com" target="_blank" rel="norefferer">contact@mausosc.com</a>
     <ul class="menu">
         <li><a href="index.php#archive">Archive</a></li>
-        <li><a href="#">Compétences</a></li>
+        <li><a href="index.php#comp">Compétences</a></li>
         <li>
             <div>
                 <div class="contactButton">

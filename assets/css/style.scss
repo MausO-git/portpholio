@@ -40,6 +40,7 @@ header{
     }
 
     .menu{
+        user-select: none;
         list-style: none;
         display: flex;
         justify-content: space-between;
@@ -83,6 +84,14 @@ header{
         transform: translate(20px, 0);
     }
 }
+@keyframes moveLeft {
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(-20px, 0);
+    }
+}
 
 #contact{
     position: fixed;
@@ -97,7 +106,7 @@ header{
     width: 40%;
     z-index: 101;
     border-left: solid 4px transparent;  
-    border-image: url(../../images/test-border.png) 10 round; 
+    border-image: url(../../images/border-pixel.png) 4 round; 
     transition: all ease-out 0.8s;
     .arrow{
         cursor: pointer;
@@ -127,14 +136,48 @@ header{
 #home{
     background-color: variables.$bg;
     overflow: hidden;
-    .nom{
-        font-family: 'Share Tech Mono';
-        color: variables.$green;
-        margin: 160px auto 0;
-        width: fit-content;
-        font-size: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8%;
+    .groupName{
+        @extend %flex-dcenter;
+        gap: 30px;
+        user-select: none;
+        cursor: pointer;
+        //margin: 160px auto 0;
+        img{
+            width: 40px;
+            display: none;
+        }
+        &:hover{
+            img{
+                display: block;
+            }
+            .right{
+                animation-name: moveRight;
+                animation-duration: 0.8s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite; 
+            }
+            .left{
+                animation-name: moveLeft;
+                animation-duration: 0.8s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite; 
+            }
+        }
+        .nom{
+            font-family: 'Share Tech Mono';
+            color: variables.$green;
+            width: fit-content;
+            font-size: 72px;
+        }
     }
     .fonc{
+        user-select: none;
         font-family: 'Bitcount Prop Double';
         color: variables.$green;
         font-size: 96px;
@@ -153,7 +196,7 @@ header{
     @extend %flex-dcenter;
     .content{
         width: 90%;
-        height: 80vh;
+        min-height: 80vh;
         background-color: rgb(255, 255, 255, 0.7);
         border-radius: 30px;
         transform: translate(0, 50px);
@@ -185,7 +228,8 @@ header{
                 align-items: center;
                 position: relative;
                 img{
-                    width: 100%;
+                    height: calc(100% / 3);
+                    //width: 100%;
                 }
                 .info{
                     padding: 5px;
@@ -208,6 +252,7 @@ header{
                         gap: 80px;
                         img{
                             width: 40px;
+                            height: 100%;
                         }
                     }
                 }
@@ -245,6 +290,9 @@ header{
                         border-bottom: solid 1px variables.$green;
                     }
                 }
+                @media all and (max-width:1500px){
+                    transform: scale(0.7);
+                }
             }
         }
         .more{
@@ -266,5 +314,51 @@ header{
                 transform: scale(1.05);
             }
         }
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+@keyframes scrollBack {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#comp{
+    .marquee, .marquee2{
+        overflow: hidden;
+        white-space: nowrap;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 120;
+        .list{
+            display: flex;
+            animation: scroll 20s linear infinite;
+            span{
+                width: 200px;
+                margin: 0 150px;
+                height: 200px;
+                img{
+                    width: 100%;
+                    
+                }
+            }
+        }
+    }
+
+    .marquee2 .list{
+        animation: scrollBack 20s linear infinite;
     }
 }

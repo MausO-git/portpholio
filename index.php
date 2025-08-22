@@ -62,7 +62,11 @@
         </form>
     </div>
     <div id="home" class="slide">
-        <div class="nom">Oscar Maus</div>
+        <div class="groupName">
+            <img src="images/pix_arrow.png" class="right" alt="flèche droite">
+            <div class="nom">Oscar Maus</div>
+            <img src="images/pix_arrow_left.png" class="left" alt="flèche gauche">
+        </div>
         <div class="fonc">Web Developer</div>
     </div>
     <div id="archive" class="slide">
@@ -113,6 +117,90 @@
                 <a href="works.php">Voir mes autres projets</a>
             </div>
          </div>
+    </div>
+    <div id="comp" class="slide">
+        <div class="marquee">
+            <div class="list">
+                <span>
+                    <img src="images/tec/html.png" alt="logo html">
+                </span>
+                <span>
+                    <img src="images/tec/css.png" alt="logo css">
+                </span>
+                <span>
+                    <img src="images/tec/figma.png" alt="logo figma">
+                </span>
+                <span>
+                    <img src="images/tec/php.png" alt="logo php">
+                </span>
+                <span>
+                    <img src="images/tec/sass.png" alt="logo sass">
+                </span>
+                <span>
+                    <img src="images/tec/js.png" alt="logo js">
+                </span>
+    
+                <span>
+                    <img src="images/tec/html.png" alt="logo html">
+                </span>
+                <span>
+                    <img src="images/tec/css.png" alt="logo css">
+                </span>
+                <span>
+                    <img src="images/tec/figma.png" alt="logo figma">
+                </span>
+                <span>
+                    <img src="images/tec/php.png" alt="logo php">
+                </span>
+                <span>
+                    <img src="images/tec/sass.png" alt="logo sass">
+                </span>
+                <span>
+                    <img src="images/tec/js.png" alt="logo js">
+                </span>
+            </div>
+        </div>
+        <div class="marquee2">
+            <div class="list">
+                <span>
+                    <img src="images/tec/js.png" alt="logo js">
+                </span>
+                <span>
+                    <img src="images/tec/sass.png" alt="logo sass">
+                </span>
+                <span>
+                    <img src="images/tec/php.png" alt="logo php">
+                </span>
+                <span>
+                    <img src="images/tec/figma.png" alt="logo figma">
+                </span>
+                <span>
+                    <img src="images/tec/css.png" alt="logo css">
+                </span>
+                <span>
+                    <img src="images/tec/html.png" alt="logo html">
+                </span>
+                
+                <span>
+                    <img src="images/tec/js.png" alt="logo js">
+                </span>
+                <span>
+                    <img src="images/tec/sass.png" alt="logo sass">
+                </span>
+                <span>
+                    <img src="images/tec/php.png" alt="logo php">
+                </span>
+                <span>
+                    <img src="images/tec/figma.png" alt="logo figma">
+                </span>
+                <span>
+                    <img src="images/tec/css.png" alt="logo css">
+                </span>
+                <span>
+                    <img src="images/tec/html.png" alt="logo html">
+                </span>
+            </div>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>
