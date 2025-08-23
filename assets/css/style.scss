@@ -335,6 +335,9 @@ header{
 }
 
 #comp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .marquee, .marquee2{
         overflow: hidden;
         white-space: nowrap;
@@ -342,7 +345,7 @@ header{
         display: flex;
         align-items: center;
         position: relative;
-        z-index: 120;
+        z-index: 99;
         .list{
             display: flex;
             animation: scroll 20s linear infinite;
@@ -361,4 +364,26 @@ header{
     .marquee2 .list{
         animation: scrollBack 20s linear infinite;
     }
+    .line{
+        width: 100%;
+        height: 4px;
+        background-image: url(../../images/border-pixel.png);
+        background-position: center 2px;
+        background-repeat: round;
+        margin: 5% 0;
+    }
 }
+
+//footer{
+footer{
+    width: 100%;
+    height: 80px;
+    @extend %flex-dcenter;
+    background-color: variables.$green;
+    border-top: black 1px solid;
+    .copy{
+        font-family: 'Anton';
+        font-size: 24px;
+    }
+}
+

@@ -4,6 +4,7 @@
         $mailToken = $_SESSION['mailtoken'];
         unset($_SESSION['mailtoken']);
     }
+    $tab = [];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -111,6 +112,7 @@
                             </div>
                             ";
                     }
+                    $req->closeCursor();
                 ?>
             </div>
             <div class="more">
@@ -119,89 +121,44 @@
          </div>
     </div>
     <div id="comp" class="slide">
-        <div class="marquee">
-            <div class="list">
-                <span>
-                    <img src="images/tec/html.png" alt="logo html">
-                </span>
-                <span>
-                    <img src="images/tec/css.png" alt="logo css">
-                </span>
-                <span>
-                    <img src="images/tec/figma.png" alt="logo figma">
-                </span>
-                <span>
-                    <img src="images/tec/php.png" alt="logo php">
-                </span>
-                <span>
-                    <img src="images/tec/sass.png" alt="logo sass">
-                </span>
-                <span>
-                    <img src="images/tec/js.png" alt="logo js">
-                </span>
-    
-                <span>
-                    <img src="images/tec/html.png" alt="logo html">
-                </span>
-                <span>
-                    <img src="images/tec/css.png" alt="logo css">
-                </span>
-                <span>
-                    <img src="images/tec/figma.png" alt="logo figma">
-                </span>
-                <span>
-                    <img src="images/tec/php.png" alt="logo php">
-                </span>
-                <span>
-                    <img src="images/tec/sass.png" alt="logo sass">
-                </span>
-                <span>
-                    <img src="images/tec/js.png" alt="logo js">
-                </span>
-            </div>
-        </div>
-        <div class="marquee2">
-            <div class="list">
-                <span>
-                    <img src="images/tec/js.png" alt="logo js">
-                </span>
-                <span>
-                    <img src="images/tec/sass.png" alt="logo sass">
-                </span>
-                <span>
-                    <img src="images/tec/php.png" alt="logo php">
-                </span>
-                <span>
-                    <img src="images/tec/figma.png" alt="logo figma">
-                </span>
-                <span>
-                    <img src="images/tec/css.png" alt="logo css">
-                </span>
-                <span>
-                    <img src="images/tec/html.png" alt="logo html">
-                </span>
-                
-                <span>
-                    <img src="images/tec/js.png" alt="logo js">
-                </span>
-                <span>
-                    <img src="images/tec/sass.png" alt="logo sass">
-                </span>
-                <span>
-                    <img src="images/tec/php.png" alt="logo php">
-                </span>
-                <span>
-                    <img src="images/tec/figma.png" alt="logo figma">
-                </span>
-                <span>
-                    <img src="images/tec/css.png" alt="logo css">
-                </span>
-                <span>
-                    <img src="images/tec/html.png" alt="logo html">
-                </span>
-            </div>
-        </div>
+        <?php
+            $req = $bdd->query("SELECT img FROM tec");
+            while($don = $req->fetch(PDO::FETCH_ASSOC)){
+                array_push($tab, $don['img']);
+            }
+            $req->closeCursor();
+            echo "<div class='marquee'>";
+                echo "<div class='list'>";
+            for($i=0;$i<2;$i++){
+                foreach($tab as $val){
+                    echo "
+                        <span>
+                            <img src='images/tec/".$val."'>
+                        </span>
+                    ";
+                }
+            }
+                echo "</div>";
+            echo "</div>";
+            echo "<div class='line'></div>";
+            echo "<div class='marquee2'>";
+                echo "<div class='list'>";
+            for($i=0;$i<2;$i++){
+                for($j=(count($tab)-1);$j>=0;$j--){
+                    echo "
+                        <span>
+                            <img src='images/tec/".$tab[$j]."'>
+                        </span>
+                    ";
+                }
+            }
+                echo "</div>";
+            echo "</div>";
+        ?>
     </div>
+    <?php
+        include('partials/footer.php')
+    ?>
     <script src="js/script.js"></script>
 </body>
 </html>
