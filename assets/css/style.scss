@@ -142,6 +142,7 @@ header{
     padding-top: 8%;
     .groupName{
         @extend %flex-dcenter;
+        position: relative;
         gap: 30px;
         user-select: none;
         cursor: pointer;
@@ -149,6 +150,45 @@ header{
         img{
             width: 40px;
             display: none;
+        }
+        .pres{
+            position: absolute;
+            font-size: 18px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -35%) scale(0);
+            width: 600px;
+            height: fit-content;
+            background-color: black;
+            border: double white 8px;
+            color: white;
+            font-family: 'Bitcount Prop Double';
+            padding: 15px;
+            transition: all 0.5s;
+            p{
+                width: 90%;
+            }
+            .cross{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                border: 1px solid #FF10F0;
+                padding: 5px;
+                height: 25px;
+                width: 25px;
+                border-radius: 3px;
+                margin: 0 10px;
+                @extend %flex-dcenter;
+                transition: all 0.3s;
+                &:hover{
+                    background-color: rgba(255, 16, 239, 0.4);
+                }
+                img{
+                    height: 25px;
+                    width: 25px;
+                    display: block;
+                }
+            }
         }
         &:hover{
             img{
@@ -185,7 +225,7 @@ header{
         width: 784px;
         border-radius: 30px;
         @extend %flex-dcenter;
-        margin: 210px auto 0;
+        margin: 11% auto 0;
         background-color: rgba(255, 255, 255, 0.2);
         transition: transform 0.1s ease, box-shadow 0.1s ease;
         will-change: transform;
@@ -227,6 +267,7 @@ header{
                 flex-direction: column;
                 align-items: center;
                 position: relative;
+                box-shadow: rgba(83, 86, 255, 0.6) 0 0 15px;
                 img{
                     height: calc(100% / 3);
                     //width: 100%;
