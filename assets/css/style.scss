@@ -92,6 +92,14 @@ header{
         transform: translate(-20px, 0);
     }
 }
+@keyframes scrollArrow{
+    0%{
+        top: 15%;
+    }
+    100%{
+        top: 45%;
+    }
+}
 
 #contact{
     position: fixed;
@@ -124,8 +132,72 @@ header{
     }
     form{
         .form-group, .sub{
-            margin: 15px;
+            margin: 30px;
         }
+        .form-group{
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            input, textarea{
+                border: 3px solid variables.$green;
+                height: 40px;
+                background-color: variables.$bglight;
+                color: variables.$green;
+                font-family: 'Bitcount Prop Double';
+                font-size: 20px;
+                padding: 10px;
+            }
+            input{
+                width: 50%;
+            }
+            textarea{
+                width: 100%;
+                height: 150px;
+                resize: none;
+            }
+        }
+        .sub{
+            input{
+                border: 3px solid black;
+                background-color: variables.$green;
+                color: black;
+                font-family: 'Bitcount Prop Double';
+                font-size: 24px;
+                padding: 10px;
+                transition: all 0.5s;
+                &:hover{
+                    color: variables.$green;
+                    background-color: black;
+                    border: 3px solid variables.$green;
+                }
+            }
+        }
+    }
+    .reseaux{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        position: absolute;
+        bottom: 5%;
+        left: 30px;
+        .res{
+            width: 100%;
+            @extend %flex-dcenter;
+            gap: 50px;
+            a{
+                display: block;
+                width: 50px;
+                transition: all 0.3s;
+                img{
+                    width: 100%;
+                }
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+
     }
 }
 
@@ -229,6 +301,25 @@ header{
         background-color: rgba(255, 255, 255, 0.2);
         transition: transform 0.1s ease, box-shadow 0.1s ease;
         will-change: transform;
+    }
+    .toscroll{
+        width: 40px;
+        height: 65px;
+        position: absolute;
+        bottom: 3%;
+        border-radius: 20px;
+        border: solid 2px variables.$green;
+        text-align: center;
+        img{
+            width: 60%;
+            height: auto;
+            position: relative;
+            top: 15%;
+            animation-name: scrollArrow;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+        }
     }
 }
 
@@ -396,7 +487,6 @@ header{
                 height: 200px;
                 img{
                     width: 100%;
-                    
                 }
             }
         }

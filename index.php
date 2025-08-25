@@ -42,25 +42,33 @@
             ?>
             <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
             <div class="form-group">
-                <label for="nom">Nom: </label>
+                <!-- <label for="nom">Nom: </label> -->
                 <input type="text" name="nom" id="nom" placeholder="Votre nom">
             </div>
             <div class="form-group">
-                <label for="prenom">Prénom: </label>
+                <!-- <label for="prenom">Prénom: </label> -->
                 <input type="text" name="prenom" id="prenom" placeholder="Votre prénom">
             </div>
             <div class="form-group">
-                <label for="email">E-mail: </label>
-                <input type="email" name="email" id="email" placeholder="votre adresse e-mail">
+                <!-- <label for="email">E-mail: </label> -->
+                <input type="email" name="email" id="email" placeholder="Votre adresse e-mail">
             </div>
-            <div class="form-group">
-                <label for="message">Message: </label>
-                <input type="textarea" name="message" id="message" placeholder="votre message">
+            <div class="form-group form-message">
+                <!-- <label for="message">Message: </label> -->
+                <textarea name="message" id="message" placeholder="Votre message"></textarea>
             </div>
             <div class="sub">
                 <input type="submit" value="Envoyer">
             </div>
         </form>
+        <div class="reseaux">
+            <h3>Autres réseaux</h3>
+            <div class="res">
+                <a href="https://github.com/MausO-git" target="_blank">
+                    <img src="images/pxgit.png" alt="icone github en pixelart">
+                </a>
+            </div>
+        </div>
     </div>
     <div id="home" class="slide">
         <div class="groupName">
@@ -69,6 +77,9 @@
             <img src="images/pix_arrow_left.png" class="left" alt="flèche gauche">
         </div>
         <div class="fonc">Web Developer</div>
+        <div class="toscroll">
+            <img src="images/scroll.png" alt="flèche incitant le scoll">
+        </div>
     </div>
     <div id="archive" class="slide">
          <div class="content">
@@ -145,11 +156,19 @@
                 echo "<div class='list'>";
             for($i=0;$i<2;$i++){
                 for($j=(count($tab)-1);$j>=0;$j--){
-                    echo "
+                    if($j === (count($tab) - 1)){
+                       echo "
                         <span>
-                            <img src='images/tec/".$tab[$j]."'>
+                            <img src='images/tec/".$tab[0]."'>
                         </span>
-                    ";
+                        "; 
+                    }else{
+                        echo "
+                        <span>
+                            <img src='images/tec/".$tab[($j+1)]."'>
+                        </span>
+                        ";
+                    }
                 }
             }
                 echo "</div>";
