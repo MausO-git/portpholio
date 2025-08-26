@@ -72,13 +72,20 @@
     </div>
     <div id="home" class="slide">
         <div class="groupName">
+            <div class="toclick">Clique sur mon nom pour en apprendre plus sur moi</div>
             <img src="images/pix_arrow.png" class="right" alt="flèche droite">
             <div class="nom">Oscar Maus</div>
             <img src="images/pix_arrow_left.png" class="left" alt="flèche gauche">
         </div>
         <div class="fonc">Web Developer</div>
+        <div class="cta">
+            Envie de me contacter ?
+        </div>
         <div class="toscroll">
-            <img src="images/scroll.png" alt="flèche incitant le scoll">
+            <p>DÉCOUVRE MES TRAVAUX</p>
+            <div class="scroll">
+                <img src="images/scroll.png" alt="flèche incitant le scoll">
+            </div>
         </div>
     </div>
     <div id="archive" class="slide">
@@ -132,6 +139,7 @@
          </div>
     </div>
     <div id="comp" class="slide">
+        <h2>Mes compétences</h2>
         <?php
             $req = $bdd->query("SELECT img FROM tec");
             while($don = $req->fetch(PDO::FETCH_ASSOC)){

@@ -106,10 +106,9 @@ header{
     top: 0;
     right: -100%;
     background-color: variables.$bg;
-    font-family: 'Bitcount Prop Double';
+    @extend %bitcount;
     font-style: normal;
     font-size: 20px;
-    color: variables.$green;
     height: 100vh;
     width: 40%;
     z-index: 101;
@@ -131,6 +130,9 @@ header{
         }
     }
     form{
+        .alert{
+            margin: 15px 30px;
+        }
         .form-group, .sub{
             margin: 30px;
         }
@@ -142,10 +144,12 @@ header{
                 border: 3px solid variables.$green;
                 height: 40px;
                 background-color: variables.$bglight;
-                color: variables.$green;
-                font-family: 'Bitcount Prop Double';
+                @extend %bitcount;
                 font-size: 20px;
                 padding: 10px;
+                &:focus{
+                    outline: none;
+                }
             }
             input{
                 width: 50%;
@@ -169,6 +173,7 @@ header{
                     color: variables.$green;
                     background-color: black;
                     border: 3px solid variables.$green;
+                    cursor: pointer;
                 }
             }
         }
@@ -201,6 +206,24 @@ header{
     }
 }
 
+@keyframes clin{
+    0%{
+        opacity: 1;
+    }
+    10%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 #contact[data-token="viewContact"]{
     right: 0;
 }
@@ -211,7 +234,7 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 8%;
+    padding-top: 10%;
     .groupName{
         @extend %flex-dcenter;
         position: relative;
@@ -219,9 +242,33 @@ header{
         user-select: none;
         cursor: pointer;
         //margin: 160px auto 0;
+        .toclick{
+            position: absolute;
+            margin: 0 auto;
+            top: -20px;
+            @extend %bitcount;
+            animation-name: clin;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-duration: 2.3s;
+        }
         img{
             width: 40px;
-            display: none;
+        }
+        .right{
+            animation-name: moveRight;
+            animation-duration: 0.8s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite; 
+        }
+        .left{
+            animation-name: moveLeft;
+            animation-duration: 0.8s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite; 
         }
         .pres{
             position: absolute;
@@ -237,6 +284,7 @@ header{
             font-family: 'Bitcount Prop Double';
             padding: 15px;
             transition: all 0.5s;
+            z-index: 200;
             p{
                 width: 90%;
             }
@@ -262,25 +310,22 @@ header{
                 }
             }
         }
-        &:hover{
-            img{
-                display: block;
-            }
-            .right{
-                animation-name: moveRight;
-                animation-duration: 0.8s;
-                animation-timing-function: ease-in-out;
-                animation-fill-mode: forwards;
-                animation-iteration-count: infinite; 
-            }
-            .left{
-                animation-name: moveLeft;
-                animation-duration: 0.8s;
-                animation-timing-function: ease-in-out;
-                animation-fill-mode: forwards;
-                animation-iteration-count: infinite; 
-            }
-        }
+        // &:hover{
+        //     .right{
+        //         animation-name: moveRight;
+        //         animation-duration: 0.8s;
+        //         animation-timing-function: ease-in-out;
+        //         animation-fill-mode: forwards;
+        //         animation-iteration-count: infinite; 
+        //     }
+        //     .left{
+        //         animation-name: moveLeft;
+        //         animation-duration: 0.8s;
+        //         animation-timing-function: ease-in-out;
+        //         animation-fill-mode: forwards;
+        //         animation-iteration-count: infinite; 
+        //     }
+        // }
         .nom{
             font-family: 'Share Tech Mono';
             color: variables.$green;
@@ -290,35 +335,64 @@ header{
     }
     .fonc{
         user-select: none;
-        font-family: 'Bitcount Prop Double';
-        color: variables.$green;
+        @extend %bitcount;
         font-size: 96px;
         height: 144px;
         width: 784px;
         border-radius: 30px;
         @extend %flex-dcenter;
-        margin: 11% auto 0;
+        margin: 9% auto 0;
         background-color: rgba(255, 255, 255, 0.2);
         transition: transform 0.1s ease, box-shadow 0.1s ease;
         will-change: transform;
     }
+    .cta{
+        margin: 5% auto 0;
+        width: fit-content;
+        padding: 20px;
+        height: 80px;
+        background-color: variables.$green;
+        font-family: 'Bitcount Prop Double';
+        color: black;
+        font-size: 36px;
+        @extend %flex-dcenter;
+        cursor: pointer;
+        user-select: none;
+        border-radius: 20px;
+        transition: all 0.5s;
+        &:hover{
+            color: white;
+            background-color: #00ff6a;
+            box-shadow: variables.$textBorder;
+        }
+    }
     .toscroll{
-        width: 40px;
-        height: 65px;
         position: absolute;
         bottom: 3%;
-        border-radius: 20px;
-        border: solid 2px variables.$green;
-        text-align: center;
-        img{
-            width: 60%;
-            height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        p{
+            @extend %bitcount;
+        }
+        .scroll{
             position: relative;
-            top: 15%;
-            animation-name: scrollArrow;
-            animation-duration: 1s;
-            animation-timing-function: ease-out;
-            animation-iteration-count: infinite;
+            width: 28px;
+            height: 44px;
+            text-align: center;
+            border: solid 2px variables.$green;
+            border-radius: 20px;
+            img{
+                width: 60%;
+                height: auto;
+                position: relative;
+                top: 15%;
+                animation-name: scrollArrow;
+                animation-duration: 1s;
+                animation-timing-function: ease-out;
+                animation-iteration-count: infinite;
+            }
         }
     }
 }
@@ -351,8 +425,7 @@ header{
                 height: 500px;
                 border-radius: 30px;
                 background-color: variables.$bg;
-                color: variables.$green;
-                font-family: 'Bitcount Prop Double';
+                @extend %bitcount;
                 overflow: hidden;
                 display: flex;
                 flex-direction: column;
@@ -470,6 +543,14 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+    h2{
+        font-family: 'Bitcount Prop Double';
+        font-size: 48px;
+        font-weight: 400;
+        color: white;
+        text-shadow: rgb(255, 255, 255, 0.5) 0 0 15px;;
+    }
     .marquee, .marquee2{
         overflow: hidden;
         white-space: nowrap;
@@ -501,7 +582,10 @@ header{
         background-image: url(../../images/border-pixel.png);
         background-position: center 2px;
         background-repeat: round;
-        margin: 5% 0;
+        margin: 90px 0;
+    }
+    .marquee, .marquee2, .line{
+        transform: translate(0, 50px);
     }
 }
 

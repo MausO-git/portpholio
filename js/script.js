@@ -4,7 +4,7 @@ const arrow = document.querySelector('#contact .arrow');
 const card = document.querySelector('.fonc');
 const nom = document.querySelector('.nom');
 const gnom = document.querySelector('.groupName');
-
+const cta = document.querySelector('.cta');
 
 const seeForm = ()=>{
     contactZone.style.right = '0'
@@ -15,6 +15,8 @@ const unseeForm = ()=>{
 };
 
 contactButton.addEventListener('click', seeForm);
+cta.addEventListener('click', seeForm)
+
 
 arrow.addEventListener('click', unseeForm);
 
@@ -41,6 +43,7 @@ document.addEventListener("mouseleave", () => {
 });
 
 nom.addEventListener('click', ()=>{
+    if(getComputedStyle(contactZone).right === "0px") return;
     const newDiv = document.createElement('div');
     newDiv.innerHTML = `
         <p>
