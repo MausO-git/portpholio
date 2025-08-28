@@ -1,7 +1,16 @@
 @use 'fonts';
 @use 'variables';
+@use 'works';
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body, html{
+    scroll-behavior: smooth;
+}
 
 //header
 header{
@@ -601,4 +610,6 @@ footer{
         font-size: 24px;
     }
 }
+
+
 

@@ -13,6 +13,7 @@
 <body>
     <?php
         include("partials/header.php");
+        include('partials/contact.php');
     ?>
     <div class="slide" id="works">
 
@@ -20,6 +21,7 @@
     <?php
         include("partials/footer.php")
     ?>
+    
     <script src="js/works.js"></script>
 </body>
 </html>

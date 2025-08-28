@@ -8,7 +8,34 @@
     $offset = ($page -1) * $parp;
 
     require("connexion.php");
-    $req = $bdd->prepare("SELECT w.images AS wimg, w.nom AS nom, DATE_FORMAT(w.date, '%d/%m/%Y') AS euDate, w.descr AS descr,w.link AS link, w.github AS github, w.figma AS figma,t1.img AS img1, t2.img AS img2, t3.img AS img3 
+
+    $total = $bdd->query("SELECT COUNT(*) FROM work")->fetchColumn();
+    $nb = intval(ceil($total / $parp));
+
+    echo "
+        <div class='selecButton'>
+            <div class='pre'";
+            if((int)$_GET['page'] === 1){
+                echo "data-grey='1'";
+            }
+            echo "><img src='images/light_pxarrow_left.png' alt='flèche gauche en pixel'></div>";
+        for($i = 1; $i <= $nb; $i++){
+            echo "<div class='pageButton' ";
+            if((int)$_GET['page'] === $i){
+                echo "data-select='1'";
+            }
+            echo ">".$i."</div>";
+        }
+    echo   "<div class='next'";
+            if((int)$_GET['page'] === $nb){
+                echo "data-grey='1'";
+            }
+            echo "><img src='images/light_pxarrow_right.png' alt='flèche droite en pixel'></div>
+        </div>
+        ";
+
+
+    $req = $bdd->prepare("SELECT DISTINCT w.images AS wimg, w.nom AS nom, DATE_FORMAT(w.date, '%d/%m/%Y') AS euDate, w.descr AS descr,w.link AS link, w.github AS github, w.figma AS figma,t1.img AS img1, t2.img AS img2, t3.img AS img3 
                     FROM work w
                     INNER JOIN link_tw l ON w.id = l.id_work
                     LEFT JOIN tec t1 ON l.tec1 = t1.id
@@ -31,17 +58,20 @@
                     <p>".$don['descr']."</p>
                 </div>
                 <div class='date'>".$don['euDate']."</div>
-                <div class='tec'>";
-                if(isset($don['img1'])){
-                    echo "<img src='images/tec/".$don['img1']."' alt='logo de la tec1'>";
-                }
-                if(isset($don['img2'])){
-                    echo "<img src='images/tec/".$don['img2']."' alt='logo de la tec2'>"; 
-                }
-                if(isset($don['img3'])){
-                    echo "<img src='images/tec/".$don['img3']."' alt='logo de la tec3'>";
-                }
-        echo   "</div>
+                <div class='grTec'>
+                    <h3>Techniques principales</h3>
+                    <div class='tec'>";
+                    if(isset($don['img1'])){
+                        echo "<img src='images/tec/".$don['img1']."' alt='logo de la tec1'>";
+                    }
+                    if(isset($don['img2'])){
+                        echo "<img src='images/tec/".$don['img2']."' alt='logo de la tec2'>"; 
+                    }
+                    if(isset($don['img3'])){
+                        echo "<img src='images/tec/".$don['img3']."' alt='logo de la tec3'>";
+                    }
+        echo       "</div>
+                </div>
                 <div class='blocLien'>
                     <div class='lien'>
                         <a href='".$don['link']."'>Voir le site</a>
@@ -60,6 +90,8 @@
             </div>
         ";
     };
+
+    $req->closeCursor();
 
 ?>
 

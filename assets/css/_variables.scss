@@ -6,16 +6,6 @@ $textHover: #3538fe 0 0 15px;
 $bg: #151717;
 $bglight: #323737;
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, html{
-    scroll-behavior: smooth;
-}
-
 .slide{
     width: 100%;
     min-height: 100vh;
