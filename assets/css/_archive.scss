@@ -1,0 +1,127 @@
+@use 'fonts';
+@use 'variables';
+
+#archive{
+    @extend %flex-dcenter;
+    .content{
+        width: 90%;
+        min-height: 80vh;
+        background-color: rgb(255, 255, 255, 0.7);
+        border-radius: 30px;
+        transform: translate(0, 50px);
+        position: relative;
+        @extend %flex-dcenter;
+        .title{
+            @extend %bitcount;
+            position: absolute;
+            font-size: 48px;
+            top: 30px;
+            left: 30px;
+        }
+        .card-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 58px;
+            justify-content: center;
+            align-items: center;
+            .card{
+                width: 350px;
+                height: 500px;
+                border-radius: 30px;
+                background-color: variables.$bg;
+                @extend %bitcount;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                box-shadow: rgba(83, 86, 255, 0.6) 0 0 15px;
+                img{
+                    height: calc(100% / 3);
+                    //width: 100%;
+                }
+                .info{
+                    padding: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    h2{
+                        font-size: 40px;
+                        font-weight: 400;
+                        text-shadow: variables.$textBorderbis;
+                    }
+                    p{
+                        font-size: 20px;
+                    }
+                    .tec{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 80px;
+                        img{
+                            width: 40px;
+                            height: 100%;
+                        }
+                    }
+                }
+                .blocLien{
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    border-top: solid 1px variables.$green;
+                    a{
+                        width: 100%;
+                        height: 50%;
+                        @extend %flex-dcenter;
+                        gap: 10px;
+                        text-decoration: none;
+                        color: variables.$green;
+                        font-size: 32px;
+                        transition: all 0.5s;
+                        svg{
+                            width: 32px;
+                            transition: all 0.5s;
+                        }
+                    }
+                    a:hover{
+                        font-size: 36px;
+                        text-shadow: variables.$textBorder;
+                        svg{
+                            width: 36px;
+                            filter: drop-shadow(rgba(83, 86, 255, 0.6) 0 0 5px);
+                        }
+                    }
+                    a.bb{
+                        border-bottom: solid 1px variables.$green;
+                    }
+                }
+                @media all and (max-width:1500px){
+                    transform: scale(0.7);
+                }
+            }
+        }
+        .more{
+            width: 100%;
+            @extend %flex-dcenter;
+            position: absolute;
+            bottom: 30px;
+            a{
+                @extend %bitcount;
+                font-size: 28px;
+                text-decoration: none;
+                color: variables.$green;
+                background-color: variables.$bg;
+                padding: 10px 15px;
+                border-radius: 20px;
+                transition: all 0.3s ease-out;
+            }
+            a:hover{
+                transform: scale(1.05);
+            }
+        }
+    }
+}

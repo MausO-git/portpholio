@@ -1,0 +1,15 @@
+@use 'fonts';
+@use 'variables';
+
+//footer{
+footer{
+    width: 100%;
+    height: 80px;
+    @extend %flex-dcenter;
+    background-color: variables.$green;
+    border-top: black 1px solid;
+    .copy{
+        font-family: 'Anton';
+        font-size: 24px;
+    }
+}

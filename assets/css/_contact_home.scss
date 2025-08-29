@@ -1,0 +1,323 @@
+@use 'fonts';
+@use 'variables';
+
+@keyframes moveRight {
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(20px, 0);
+    }
+}
+@keyframes moveLeft {
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(-20px, 0);
+    }
+}
+@keyframes scrollArrow{
+    0%{
+        top: 15%;
+    }
+    100%{
+        top: 45%;
+    }
+}
+
+#contact{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: variables.$bg;
+    @extend %bitcount;
+    font-style: normal;
+    font-size: 20px;
+    height: 100vh;
+    width: 40%;
+    z-index: 101;
+    border-left: solid 4px transparent;  
+    border-image: url(../../images/border-pixel.png) 4 round; 
+    transition: all ease-out 0.8s;
+    .arrow{
+        cursor: pointer;
+        width: 30px;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        &:hover{
+            animation-name: moveRight;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+        }
+    }
+    form{
+        .alert{
+            margin: 15px 30px;
+        }
+        .form-group, .sub{
+            margin: 30px;
+        }
+        .form-group{
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            input, textarea{
+                border: 3px solid variables.$green;
+                height: 40px;
+                background-color: variables.$bglight;
+                @extend %bitcount;
+                font-size: 20px;
+                padding: 10px;
+                &:focus{
+                    outline: none;
+                }
+            }
+            input{
+                width: 50%;
+            }
+            textarea{
+                width: 100%;
+                height: 150px;
+                resize: none;
+            }
+        }
+        .sub{
+            input{
+                border: 3px solid black;
+                background-color: variables.$green;
+                color: black;
+                font-family: 'Bitcount Prop Double';
+                font-size: 24px;
+                padding: 10px;
+                transition: all 0.5s;
+                &:hover{
+                    color: variables.$green;
+                    background-color: black;
+                    border: 3px solid variables.$green;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .reseaux{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        position: absolute;
+        bottom: 5%;
+        left: 30px;
+        .res{
+            width: 100%;
+            @extend %flex-dcenter;
+            gap: 50px;
+            a{
+                display: block;
+                width: 50px;
+                transition: all 0.3s;
+                img{
+                    width: 100%;
+                }
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+    }
+}
+
+@keyframes clin{
+    0%{
+        opacity: 1;
+    }
+    10%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#contact[data-token="viewContact"]{
+    right: 0;
+}
+
+#home{
+    background-color: variables.$bg;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+    .groupName{
+        @extend %flex-dcenter;
+        position: relative;
+        gap: 30px;
+        user-select: none;
+        cursor: pointer;
+        //margin: 160px auto 0;
+        .toclick{
+            position: absolute;
+            margin: 0 auto;
+            top: -20px;
+            @extend %bitcount;
+            animation-name: clin;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-duration: 2.3s;
+        }
+        img{
+            width: 40px;
+        }
+        .right{
+            animation-name: moveRight;
+            animation-duration: 0.8s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite; 
+        }
+        .left{
+            animation-name: moveLeft;
+            animation-duration: 0.8s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite; 
+        }
+        .pres{
+            position: absolute;
+            font-size: 18px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -35%) scale(0);
+            width: 600px;
+            height: fit-content;
+            background-color: black;
+            border: double white 8px;
+            color: white;
+            font-family: 'Bitcount Prop Double';
+            padding: 15px;
+            transition: all 0.5s;
+            z-index: 200;
+            p{
+                width: 90%;
+            }
+            .cross{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                border: 1px solid #FF10F0;
+                padding: 5px;
+                height: 25px;
+                width: 25px;
+                border-radius: 3px;
+                margin: 0 10px;
+                @extend %flex-dcenter;
+                transition: all 0.3s;
+                &:hover{
+                    background-color: rgba(255, 16, 239, 0.4);
+                }
+                img{
+                    height: 25px;
+                    width: 25px;
+                    display: block;
+                }
+            }
+        }
+        // &:hover{
+        //     .right{
+        //         animation-name: moveRight;
+        //         animation-duration: 0.8s;
+        //         animation-timing-function: ease-in-out;
+        //         animation-fill-mode: forwards;
+        //         animation-iteration-count: infinite; 
+        //     }
+        //     .left{
+        //         animation-name: moveLeft;
+        //         animation-duration: 0.8s;
+        //         animation-timing-function: ease-in-out;
+        //         animation-fill-mode: forwards;
+        //         animation-iteration-count: infinite; 
+        //     }
+        // }
+        .nom{
+            font-family: 'Share Tech Mono';
+            color: variables.$green;
+            width: fit-content;
+            font-size: 72px;
+        }
+    }
+    .fonc{
+        user-select: none;
+        @extend %bitcount;
+        font-size: 96px;
+        height: 144px;
+        width: 784px;
+        border-radius: 30px;
+        @extend %flex-dcenter;
+        margin: 9% auto 0;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        will-change: transform;
+    }
+    .cta{
+        margin: 5% auto 0;
+        width: fit-content;
+        padding: 20px;
+        height: 80px;
+        background-color: variables.$green;
+        font-family: 'Bitcount Prop Double';
+        color: black;
+        font-size: 36px;
+        @extend %flex-dcenter;
+        cursor: pointer;
+        user-select: none;
+        border-radius: 20px;
+        transition: all 0.5s;
+        &:hover{
+            color: white;
+            background-color: #00ff6a;
+            box-shadow: variables.$textBorder;
+        }
+    }
+    .toscroll{
+        position: absolute;
+        bottom: 3%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        p{
+            @extend %bitcount;
+        }
+        .scroll{
+            position: relative;
+            width: 28px;
+            height: 44px;
+            text-align: center;
+            border: solid 2px variables.$green;
+            border-radius: 20px;
+            img{
+                width: 60%;
+                height: auto;
+                position: relative;
+                top: 15%;
+                animation-name: scrollArrow;
+                animation-duration: 1s;
+                animation-timing-function: ease-out;
+                animation-iteration-count: infinite;
+            }
+        }
+    }
+}

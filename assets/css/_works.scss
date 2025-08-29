@@ -2,41 +2,160 @@
 @use 'variables';
 
 #works{
+    position: relative;
     overflow: hidden;
-}
-
-.selecButton{
-    width: 100%;
-    @extend %flex-dcenter;
-    gap: 20px;
-    margin-top: 130px;
-    .pre, .next, .pageButton{
-        user-select: none;
+    font-family: 'Bitcount Prop Double';
+    color: white;
+    .selecButton{
+        width: 100%;
         @extend %flex-dcenter;
-        cursor: pointer;
-    }
-    .pre, .next{
-        height: 50px;
-        border-radius: 50%;
-        img{
-            height: 100%;
+        gap: 20px;
+        margin-top: 130px;
+        margin-bottom: 30px;
+        .pre, .next, .pageButton{
+            user-select: none;
+            @extend %flex-dcenter;
+            cursor: pointer;
+        }
+        .pre, .next{
+            height: 50px;
+            border-radius: 50%;
+            img{
+                height: 100%;
+            }
+        }
+    
+        .pre[data-grey='1'], .next[data-grey='1']{
+            filter: grayscale(100%);
+        }
+        .pageButton{
+            background-color: variables.$green;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            border: solid 2px #6C7A89;
+            border-radius: 25%;
+        }
+        .pageButton[data-select='1']{
+            filter: hue-rotate(90deg);
         }
     }
+    .site{
+        width: 100%;
+        height: 500px;
+        display: flex;
+        &.left{
+            border-left: solid 4px transparent;  
+            border-image: url(../../images/border-pixel.png) 4 round; 
+            background-color: black;
+        }
+        &.right{
+            border-right: solid 4px transparent;  
+            border-image: url(../../images/border-pixel.png) 4 round; 
+            background-color: #323733;
+            flex-direction: row-reverse;
 
-    .pre[data-grey='1'], .next[data-grey='1']{
-        filter: grayscale(100%);
-    }
-    .pageButton{
-        background-color: variables.$green;
-        width: 40px;
-        height: 40px;
-        font-family: 'Bitcount Prop Double';
-        color: white;
-        font-size: 24px;
-        border: solid 2px #6C7A89;
-        border-radius: 25%;
-    }
-    .pageButton[data-select='1']{
-        filter: hue-rotate(90deg);
+        }
+        .bloc1, .bloc2{
+            height: 100%;
+            width: 50%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+
+        .bloc1{
+            .siteName{
+                font-size: 40px;
+                font-weight: 400;
+            }
+            .cover{
+                width: 100%;
+                @extend %flex-dcenter;
+                img{
+                    width: 500px;
+                    border: 2px solid variables.$green;
+                    box-shadow: variables.$textBorder;
+                }
+            }
+            .grTec{
+                h3{
+                    font-size: 20px;
+                    font-weight: 400;
+                }
+                .tec{
+                    width: 100%;
+                    @extend %flex-dcenter;
+                    gap: 100px;
+                    img{
+                        width: 60px;
+                    }
+                }
+            }
+        }
+        .bloc2{
+            .date{
+                span{
+                    font-size: 24px;
+                    text-shadow: variables.$textBorder;
+                }
+            }
+            .blocLien{
+                width: 100%;
+                @extend %flex-dcenter;
+                flex-direction: column;
+                gap: 27px;
+                .lien{
+                    width: 80%;
+                    height: 60px;
+                    a{
+                        height: 100%;
+                        width: 100%;
+                        @extend %flex-dcenter;
+                        gap: 10px;
+                        background-color: variables.$green;
+                        color: black;
+                        text-decoration: none;
+                        font-size: 28px;
+                        border-radius: 30px;
+                        transition: all 0.5s;
+                        svg, img{
+                            width: 35px;
+                            transition: all 0.5s;
+                        }
+                        &:hover{
+                            font-size: 32px;
+                            text-shadow: variables.$textBorder;
+                            svg, img{
+                                width: 40px;
+                                filter: drop-shadow(rgba(83, 86, 255, 0.6) 0 0 5px);
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }
+.backTop{
+        position: fixed;
+        right: 30px;
+        bottom: -100px;
+        cursor: pointer;
+        border: 2px solid variables.$green;
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        @extend %flex-dcenter;
+        transition: all 0.5s;
+        overflow: hidden;
+        img{
+            width: 40px;
+        }    
+    }
+
+

@@ -18,6 +18,9 @@
     <div class="slide" id="works">
 
     </div>
+    <div class="backTop">
+        <img src="images/light_pxarrow_up.png" alt="flèche du haut en pixel">
+    </div>
     <?php
         include("partials/footer.php")
     ?>
