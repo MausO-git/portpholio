@@ -14,4 +14,40 @@
             </div>
         </li>
     </ul>
+    <div class="burg">
+        <div class="bar">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+        </div>
+        <div class="bar">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+        </div>
+        <div class="bar">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+        </div>
+    </div>
+    <div class="menB">
+        <ul class="menuIn">
+            <li><a href="index.php#archive">Archive</a></li>
+            <li><a href="index.php#comp">Compétences</a></li>
+            <li>
+                <div>
+                    <div class="contactButton">
+                        Contact
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </header>

@@ -5,7 +5,7 @@
 header{
     background-color: variables.$green;
     width: 100%;
-    height: 100px;
+    height: var(--header);
     position: fixed;
     top: 0;
     z-index: 100;
@@ -72,4 +72,85 @@ header{
             }
         }
     }
+    .burg{
+        display: none;
+        flex-direction: column;
+        gap: variables.$burgSize;
+        cursor: pointer;
+        .bar{
+            display: flex;
+            .cube{
+                width: variables.$burgSize;
+                height: variables.$burgSize;
+                background-color: black;
+                transition: all 0.3s; 
+            }
+        }
+    }
+    // @media all and (max-width: 1500px){
+    //     height: 80px;
+    // }
+    @media all and (max-width: 1200px){
+        .menu{
+            display: none;
+        }
+        .burg{
+            display: flex;
+        }
+    }
+}
+
+.menB{
+    position: fixed;
+    left: -100%;
+    background-color: variables.$green;
+    width: 100%;
+    height: calc(100vh - var(--header));
+    bottom: 0;
+    transition: all 0.5s;
+    z-index: 201;
+    @extend %flex-dcenter;
+    flex-direction: column;
+    .menuIn{
+        user-select: none;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+        justify-content: center;
+        width: 300px;
+        gap: 50px;
+        transform: translate(0, calc(-1 * var(--header)));
+        li{
+            font-size: 28px;
+            font-family: 'Roboto';
+            font-weight: bold;
+            a{
+                @extend %flex-dcenter;
+                text-decoration: none;
+                color: black;
+                transition: all 0.5s;
+                &:hover{
+                    transform: scale(1.15);
+    
+                }
+            }
+            .contactButton{
+                @extend %flex-dcenter;
+                cursor: pointer;
+                color: variables.$green;
+                background-color: black;
+                padding: 10px 10px;
+                border-radius: 10px;
+                transition: all 0.5s;
+                &:hover{
+                    transform: scale(1.15);
+                    color: white;
+                }
+            }
+        }
+    }
+}
+.menB.view{
+    left: 0;
 }

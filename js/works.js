@@ -20,7 +20,23 @@ const unseeForm = ()=>{
     contactZone.style.right = '-100%'
 };
 
-contactButton.addEventListener('click', seeForm);
+const closePres = ()=>{
+    const pres = document.querySelector('.groupName .pres');
+    console.log(pres);
+    if(!pres) return
+
+    pres.style.transform = 'translate(-50%, -35%) scale(0)';
+    setTimeout(()=>{
+        gnom.removeChild(pres);
+    }, 300)
+
+}
+
+contactButton.addEventListener('click',()=>{
+    seeForm();
+    closePres();
+});
+
 arrow.addEventListener('click', unseeForm);
 
 const chargerPage = (p)=>{
@@ -72,6 +88,72 @@ const checkbacktop = ()=>{
 }
 
 window.addEventListener('scroll', checkbacktop)
+
+//gestion menu burger
+
+const burg = document.querySelector('.burg');
+const allCub = document.querySelectorAll('.burg .cube');
+console.log(allCub)
+const bars = document.querySelectorAll('.bar');
+const cubs1 = bars[0].querySelectorAll('.cube')
+const cubs2 = bars[1].querySelectorAll('.cube')
+const cubs3 = bars[2].querySelectorAll('.cube')
+const menuB = document.querySelector('.menB');
+const contB = document.querySelector('.menuIn .contactButton');
+
+const size = 6
+
+const crosstobar = ()=>{
+    allCub.forEach(cub =>{
+        cub.style.transform = '';
+        cub.style.opacity = '1';
+    })
+}
+
+burg.addEventListener('click', ()=>{
+    closePres();
+    menuB.classList.toggle('view')
+    if(burg.classList.contains('clicked')){
+        crosstobar();
+    }else{
+        cubs1.forEach((cub, ind)=>{
+            if((ind === 1) || (ind === 3)){
+                cub.style.transform = `translate(0, ${size}px)`
+            }
+            if(ind === 2){
+                cub.style.opacity = '0'
+            }
+        })
+    
+        cubs3.forEach((cub, ind)=>{
+            if((ind === 1) || (ind === 3)){
+                cub.style.transform = `translate(0, -${size}px)`
+            }
+            if(ind === 2){
+                cub.style.opacity = '0'
+            }
+        })
+    
+        cubs2.forEach((cub, ind)=>{
+            if(ind !== 2){
+                cub.style.opacity = '0'
+            }
+        })
+    }
+
+    burg.classList.toggle('clicked');
+})
+
+contB.addEventListener('click',()=>{
+    seeForm();
+    crosstobar();
+    burg.classList.remove('clicked');
+    menuB.classList.remove('view')
+});
+
+
+
+
 
 
 

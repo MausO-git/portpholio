@@ -5,6 +5,17 @@ $textBorderbis: rgba(83, 86, 255, 0.6) 0 0 5px;
 $textHover: #3538fe 0 0 15px;
 $bg: #151717;
 $bglight: #323737;
+$burgSize: 6px;
+
+:root{
+    --header: 100px;
+}
+
+@media all and (max-width:1500px){
+    :root{
+        --header: 80px;
+    }
+}
 
 .slide{
     width: 100%;
