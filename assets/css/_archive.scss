@@ -37,11 +37,14 @@
                 position: relative;
                 box-shadow: rgba(83, 86, 255, 0.6) 0 0 15px;
                 img{
-                    height: calc(100% / 3);
+                    height: 40%;
+                    width: 100%;
+                    object-fit: cover;
                     //width: 100%;
                 }
                 .info{
-                    padding: 5px;
+                    height: 35%;
+                    padding: 10px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -69,7 +72,7 @@
                     position: absolute;
                     bottom: 0;
                     width: 100%;
-                    height: 40%;
+                    height: 25%;
                     display: flex;
                     flex-direction: column;
                     border-top: solid 1px variables.$green;
