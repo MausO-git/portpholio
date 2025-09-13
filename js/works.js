@@ -11,6 +11,7 @@ const contactButton = document.querySelector('.menu .contactButton');
 const contactZone = document.querySelector('#contact');
 const arrow = document.querySelector('#contact .arrow');
 const backTop = document.querySelector('.backTop');
+const mailInput = document.querySelector('form .form-group .mail');
 
 const seeForm = ()=>{
     contactZone.style.right = '0'
@@ -36,6 +37,14 @@ contactButton.addEventListener('click',()=>{
     seeForm();
     closePres();
 });
+
+window.addEventListener('resize', ()=>{
+    if(window.innerWidth <= 545){
+        mailInput.placeholder = 'Votre e-mail'
+    }else{
+        mailInput.placeholder = 'Votre adresse e-mail'
+    }
+})
 
 arrow.addEventListener('click', unseeForm);
 

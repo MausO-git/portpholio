@@ -5,6 +5,7 @@ const card = document.querySelector('.fonc');
 const nom = document.querySelector('.nom');
 const gnom = document.querySelector('.groupName');
 const cta = document.querySelector('.cta');
+const mailInput = document.querySelector('form .form-group .mail');
 
 const seeForm = ()=>{
     contactZone.style.right = '0'
@@ -16,7 +17,6 @@ const unseeForm = ()=>{
 
 const closePres = ()=>{
     const pres = document.querySelector('.groupName .pres');
-    console.log(pres);
     if(!pres) return
 
     pres.style.transform = 'translate(-50%, -35%) scale(0)';
@@ -35,6 +35,13 @@ cta.addEventListener('click',()=>{
     closePres();
 })
 
+window.addEventListener('resize', ()=>{
+    if(window.innerWidth <= 545){
+        mailInput.placeholder = 'Votre e-mail'
+    }else{
+        mailInput.placeholder = 'Votre adresse e-mail'
+    }
+})
 
 arrow.addEventListener('click', unseeForm);
 
