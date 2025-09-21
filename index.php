@@ -89,48 +89,50 @@
     </div>
     <div id="comp" class="slide">
         <h2>Mes compétences</h2>
-        <?php
-            $req = $bdd->query("SELECT img FROM tec");
-            while($don = $req->fetch(PDO::FETCH_ASSOC)){
-                array_push($tab, $don['img']);
-            }
-            $req->closeCursor();
-            echo "<div class='marquee'>";
-                echo "<div class='list'>";
-            for($i=0;$i<2;$i++){
-                foreach($tab as $val){
-                    echo "
-                        <span>
-                            <img src='images/tec/".$val."'>
-                        </span>
-                    ";
+        <div class="marquees">
+            <?php
+                $req = $bdd->query("SELECT img FROM tec");
+                while($don = $req->fetch(PDO::FETCH_ASSOC)){
+                    array_push($tab, $don['img']);
                 }
-            }
-                echo "</div>";
-            echo "</div>";
-            echo "<div class='line'></div>";
-            echo "<div class='marquee2'>";
-                echo "<div class='list'>";
-            for($i=0;$i<2;$i++){
-                for($j=(count($tab)-1);$j>=0;$j--){
-                    if($j === (count($tab) - 1)){
-                       echo "
-                        <span>
-                            <img src='images/tec/".$tab[0]."'>
-                        </span>
-                        "; 
-                    }else{
+                $req->closeCursor();
+                echo "<div class='marquee'>";
+                    echo "<div class='list'>";
+                for($i=0;$i<2;$i++){
+                    foreach($tab as $val){
                         echo "
-                        <span>
-                            <img src='images/tec/".$tab[($j+1)]."'>
-                        </span>
+                            <span>
+                                <img src='images/tec/".$val."'>
+                            </span>
                         ";
                     }
                 }
-            }
+                    echo "</div>";
                 echo "</div>";
-            echo "</div>";
-        ?>
+                echo "<div class='line'></div>";
+                echo "<div class='marquee2'>";
+                    echo "<div class='list'>";
+                for($i=0;$i<2;$i++){
+                    for($j=(count($tab)-1);$j>=0;$j--){
+                        if($j === (count($tab) - 1)){
+                        echo "
+                            <span>
+                                <img src='images/tec/".$tab[0]."'>
+                            </span>
+                            "; 
+                        }else{
+                            echo "
+                            <span>
+                                <img src='images/tec/".$tab[($j+1)]."'>
+                            </span>
+                            ";
+                        }
+                    }
+                }
+                    echo "</div>";
+                echo "</div>";
+            ?>
+        </div>
     </div>
     <?php
         include('partials/footer.php')

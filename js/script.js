@@ -105,6 +105,9 @@ const cubs2 = bars[1].querySelectorAll('.cube')
 const cubs3 = bars[2].querySelectorAll('.cube')
 const menuB = document.querySelector('.menB');
 const contB = document.querySelector('.menuIn .contactButton');
+const Blinks = document.querySelectorAll('.menB .menuIn li a')
+
+console.log(Blinks)
 
 const size = 6
 
@@ -113,6 +116,12 @@ const crosstobar = ()=>{
         cub.style.transform = '';
         cub.style.opacity = '1';
     })
+}
+
+const closeBMenu = ()=>{
+    burg.classList.remove('clicked');
+    menuB.classList.remove('view');
+    crosstobar();
 }
 
 burg.addEventListener('click', ()=>{
@@ -151,10 +160,12 @@ burg.addEventListener('click', ()=>{
 
 contB.addEventListener('click',()=>{
     seeForm();
-    crosstobar();
-    burg.classList.remove('clicked');
-    menuB.classList.remove('view')
+    closeBMenu();
 });
+
+Blinks.forEach(blink =>{
+    blink.addEventListener('click', closeBMenu)
+})
 
 
 

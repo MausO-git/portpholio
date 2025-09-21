@@ -21,8 +21,9 @@
 #comp{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    //padding-top: 120px;
     text-align: center;
+    gap: 60px;
     h2{
         font-family: 'Bitcount Prop Double';
         font-size: 48px;
@@ -66,4 +67,7 @@
     .marquee, .marquee2, .line{
         transform: translate(0, 50px);
     }
+    // @media all and (max-width:700px){
+    //     padding-top: 60px;
+    // }
 }
