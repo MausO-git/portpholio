@@ -265,14 +265,12 @@
                 }
             }
         }
-        // @media all and (max-width:700px){
-        //     margin-top: 50px;
-        // }
         @media all and (max-width:500px){
             transform: translate(0);
         }
     }
     @media all and (max-width:500px){
             padding-top: 100px;
+            padding-bottom: 30px;
     }
 }
